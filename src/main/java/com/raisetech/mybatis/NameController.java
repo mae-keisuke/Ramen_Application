@@ -15,8 +15,8 @@ public class NameController {
   }
 
   @GetMapping("/names")
-  public List<Name> names() {
-    return nameService.findAll();
+  public List<NameResponse> names() {
+    return nameService.findAll().stream().map(NameResponse::new).toList();
   }
 
 

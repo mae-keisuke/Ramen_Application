@@ -3,6 +3,7 @@ DROP TABLE IF EXISTS names;
 CREATE TABLE names (
   id int unsigned AUTO_INCREMENT,
   name VARCHAR(50) NOT NULL,
+  address VARCHAR(20),
   PRIMARY KEY(id)
 );
 
