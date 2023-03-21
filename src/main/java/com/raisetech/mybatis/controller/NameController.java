@@ -1,5 +1,6 @@
-package com.raisetech.mybatis;
+package com.raisetech.mybatis.controller;
 
+import com.raisetech.mybatis.service.NameService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

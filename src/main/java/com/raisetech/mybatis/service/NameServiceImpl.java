@@ -1,5 +1,7 @@
-package com.raisetech.mybatis;
+package com.raisetech.mybatis.service;
 
+import com.raisetech.mybatis.entity.Name;
+import com.raisetech.mybatis.mapper.NameMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

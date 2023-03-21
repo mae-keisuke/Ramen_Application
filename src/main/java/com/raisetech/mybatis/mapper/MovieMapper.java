@@ -1,5 +1,6 @@
-package com.raisetech.mybatis;
+package com.raisetech.mybatis.mapper;
 
+import com.raisetech.mybatis.entity.Movie;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 

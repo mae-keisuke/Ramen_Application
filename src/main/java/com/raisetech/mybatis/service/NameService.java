@@ -1,4 +1,6 @@
-package com.raisetech.mybatis;
+package com.raisetech.mybatis.service;
+
+import com.raisetech.mybatis.entity.Name;
 
 import java.util.List;
 

@@ -1,5 +1,6 @@
-package com.raisetech.mybatis;
+package com.raisetech.mybatis.controller;
 
+import com.raisetech.mybatis.service.MovieService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
