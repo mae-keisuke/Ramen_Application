@@ -17,5 +17,3 @@ public class NameServiceImpl implements NameService {
     return nameMapper.findAll();
   }
 }
-  
-
