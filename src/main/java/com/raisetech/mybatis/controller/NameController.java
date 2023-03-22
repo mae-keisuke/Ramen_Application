@@ -20,5 +20,4 @@ public class NameController {
     return nameService.findAll().stream().map(NameResponse::new).toList();
   }
 
-
 }

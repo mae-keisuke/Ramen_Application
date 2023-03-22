@@ -20,6 +20,5 @@ public class MovieResponse {
     this.id = movie.getId();
     this.name = movie.getName();
 
-
   }
 }

@@ -23,5 +23,3 @@ public class MovieServiceImpl implements MovieService {
     return movieMapper.getPublishedYear(published_year);
   }
 }
-  
-

@@ -19,7 +19,5 @@ public class NameResponse {
   public NameResponse(Name name) {
     this.id = name.getId();
     this.name = name.getName();
-
-
   }
 }
