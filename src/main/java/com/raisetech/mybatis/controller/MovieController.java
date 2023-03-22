@@ -17,12 +17,11 @@ public class MovieController {
   }
 
   @GetMapping("/movies")
-  public List<MovieResponse> movies() {
-    return movieService.findAll().stream().map(MovieResponse::new).toList();
-  }
-
-  @GetMapping("/movies2")
-  public List<MovieResponse> movies(@RequestParam("published_year") String publishedYear) {
-    return movieService.getPublishedYear(publishedYear).stream().map(MovieResponse::new).toList();
+  public List<MovieResponse> movies(@RequestParam(value = "published_year", required = false) String publishedYear) {
+    if (publishedYear != null) {
+      return movieService.getPublishedYear(publishedYear).stream().map(MovieResponse::new).toList();
+    } else {
+      return movieService.findAll().stream().map(MovieResponse::new).toList();
+    }
   }
 }
