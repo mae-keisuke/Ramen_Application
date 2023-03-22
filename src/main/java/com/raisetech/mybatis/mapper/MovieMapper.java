@@ -12,5 +12,5 @@ public interface MovieMapper {
   List<Movie> findAll();
 
   @Select("SELECT * FROM movies where published_year = #{published_year}")
-  List<Movie> getPublishedYear(String published_year);
+  List<Movie> getPublishedYear(String publishedYear);
 }
