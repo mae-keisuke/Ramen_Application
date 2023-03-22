@@ -1,4 +1,6 @@
-package com.raisetech.mybatis;
+package com.raisetech.mybatis.controller;
+
+import com.raisetech.mybatis.entity.Name;
 
 public class NameResponse {
 
@@ -17,7 +19,5 @@ public class NameResponse {
   public NameResponse(Name name) {
     this.id = name.getId();
     this.name = name.getName();
-
-
   }
 }

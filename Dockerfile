@@ -12,4 +12,3 @@ ENV LC_ALL ja_JP.UTF-8
 
 # my.cnf ファイルのコピー
 COPY ./conf/mysql/my.cnf /etc/my.cnf
-

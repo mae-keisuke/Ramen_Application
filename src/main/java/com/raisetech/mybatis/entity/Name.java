@@ -1,4 +1,4 @@
-package com.raisetech.mybatis;
+package com.raisetech.mybatis.entity;
 
 public class Name {
 
