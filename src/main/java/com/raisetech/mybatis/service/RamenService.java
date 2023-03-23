@@ -10,4 +10,6 @@ public interface RamenService {
   List<Ramen> findAll();
 
   List<Ramen> getPoint(Integer point);
+
+  void delete(int id);
 }

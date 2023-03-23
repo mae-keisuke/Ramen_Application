@@ -1,11 +1,11 @@
 package com.raisetech.mybatis.controller;
 
 import com.raisetech.mybatis.service.RamenService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class RamenController {
@@ -23,5 +23,11 @@ public class RamenController {
     } else {
       return ramenService.findAll().stream().map(RamenResponse::new).toList();
     }
+  }
+
+  @DeleteMapping("/ramens/{id}")
+  public ResponseEntity<Map<String, String>> deleteRamen(@PathVariable("id") int id) {
+    ramenService.delete(id);
+    return ResponseEntity.ok(Map.of("message", "data successfully deleted"));
   }
 }

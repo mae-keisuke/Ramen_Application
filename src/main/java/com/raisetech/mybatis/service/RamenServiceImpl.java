@@ -22,4 +22,8 @@ public class RamenServiceImpl implements RamenService {
   public List<Ramen> getPoint(Integer point) {
     return ramenMapper.getPoint(point);
   }
+
+  public void delete(int id) {
+    
+  }
 }
