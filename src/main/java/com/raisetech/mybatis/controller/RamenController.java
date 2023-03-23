@@ -19,7 +19,7 @@ public class RamenController {
   @GetMapping("/ramens")
   public List<RamenResponse> ramens(@RequestParam(value = "point", required = false) Integer point) {
     if (point != null) {
-      return ramenService.getPoint(point).stream().map(RamenResponse::new).toList();
+      return ramenService.findByPoint(point).stream().map(RamenResponse::new).toList();
     } else {
       return ramenService.findAll().stream().map(RamenResponse::new).toList();
     }

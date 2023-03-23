@@ -19,11 +19,11 @@ public class RamenServiceImpl implements RamenService {
     return ramenMapper.findAll();
   }
 
-  public List<Ramen> getPoint(Integer point) {
+  public List<Ramen> findByPoint(Integer point) {
     return ramenMapper.getPoint(point);
   }
 
   public void delete(int id) {
-    
+
   }
 }
