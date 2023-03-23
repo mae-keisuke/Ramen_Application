@@ -1,8 +1,8 @@
 package com.raisetech.mybatis.controller;
 
-import com.raisetech.mybatis.entity.Movie;
+import com.raisetech.mybatis.entity.Ramen;
 
-public class MovieResponse {
+public class RamenResponse {
 
   private int id;
 
@@ -16,9 +16,8 @@ public class MovieResponse {
     return name;
   }
 
-  public MovieResponse(Movie movie) {
-    this.id = movie.getId();
-    this.name = movie.getName();
-
+  public RamenResponse(Ramen ramen) {
+    this.id = ramen.getId();
+    this.name = ramen.getName();
   }
 }

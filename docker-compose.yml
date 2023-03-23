@@ -2,13 +2,13 @@ version: '3.8'
 services:
   db:
     build: .
-    container_name: namelist
+    container_name: ramenlist
     platform: linux/x86_64
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: name_list
+      MYSQL_DATABASE: ramen_list
       MYSQL_USER: user
       MYSQL_PASSWORD: password
     ports:
