@@ -12,9 +12,9 @@ public interface RamenMapper {
   @Select("SELECT * FROM ramens")
   List<Ramen> findAll();
 
-  @Select("SELECT * FROM ramens where point = #{point}")
+  @Select("SELECT * FROM ramens WHERE point = #{point}")
   List<Ramen> getPoint(Integer point);
 
-  @Delete("DELETE FROM ramens where id = #{id}")
+  @Delete("DELETE FROM ramens WHERE id = #{id}")
   void delete(int id);
 }
