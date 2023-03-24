@@ -33,6 +33,6 @@ public class RamenServiceImpl implements RamenService {
   }
 
   public void delete(int id) {
-
+    ramenMapper.delete(id);
   }
 }
