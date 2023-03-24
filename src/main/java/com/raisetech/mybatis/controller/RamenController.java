@@ -1,5 +1,6 @@
 package com.raisetech.mybatis.controller;
 
+import com.raisetech.mybatis.entity.Ramen;
 import com.raisetech.mybatis.service.RamenService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +18,7 @@ public class RamenController {
   }
 
   @GetMapping("/ramens")
-  public List<RamenResponse> ramens(@RequestParam(value = "point", required = false) Integer point) {
+  public List<Ramen> ramens(@RequestParam(value = "point", required = false) Integer point) {
     return ramenService.getRamenList(point);
   }
 

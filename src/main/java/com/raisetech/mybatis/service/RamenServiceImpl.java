@@ -1,6 +1,5 @@
 package com.raisetech.mybatis.service;
 
-import com.raisetech.mybatis.controller.RamenResponse;
 import com.raisetech.mybatis.entity.Ramen;
 import com.raisetech.mybatis.mapper.RamenMapper;
 import org.springframework.stereotype.Service;
@@ -24,11 +23,11 @@ public class RamenServiceImpl implements RamenService {
     return ramenMapper.getPoint(point);
   }
 
-  public List<RamenResponse> getRamenList(Integer point) {
+  public List<Ramen> getRamenList(Integer point) {
     if (point != null) {
-      return findByPoint(point).stream().map(RamenResponse::new).toList();
+      return ramenMapper.getPoint(point);
     } else {
-      return findAll().stream().map(RamenResponse::new).toList();
+      return ramenMapper.findAll();
     }
   }
 
