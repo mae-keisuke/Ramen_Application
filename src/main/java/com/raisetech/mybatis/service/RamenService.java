@@ -13,5 +13,7 @@ public interface RamenService {
 
   List<Ramen> getRamenList(Integer point);
 
+  public void update(int id, String name, String address, Integer avePrice, Integer point);
+
   void delete(int id);
 }

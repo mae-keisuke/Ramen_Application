@@ -8,11 +8,11 @@ public class Ramen {
 
   private String address;
 
-  private int avePrice;
+  private Integer avePrice;
 
-  private int point;
+  private Integer point;
 
-  public Ramen(int id, String name, String address, int avePrice, int point) {
+  public Ramen(int id, String name, String address, Integer avePrice, Integer point) {
     this.id = id;
     this.name = name;
     this.address = address;
@@ -32,11 +32,11 @@ public class Ramen {
     return address;
   }
 
-  public int getAvePrice() {
+  public Integer getAvePrice() {
     return avePrice;
   }
 
-  public int getPoint() {
+  public Integer getPoint() {
     return point;
   }
 }

@@ -22,6 +22,12 @@ public class RamenController {
     return ramenService.getRamenList(point);
   }
 
+  @PatchMapping("/ramens/{id}")
+  public ResponseEntity<Map<String, String>> updateRamen(@PathVariable("id") int id, @RequestBody Ramen ramen) {
+    ramenService.update(id, ramen.getName(), ramen.getAddress(), ramen.getAvePrice(), ramen.getPoint());
+    return ResponseEntity.ok(Map.of("message", "data successfully updated"));
+  }
+
   @DeleteMapping("/ramens/{id}")
   public ResponseEntity<Map<String, String>> deleteRamen(@PathVariable("id") int id) {
     ramenService.delete(id);
