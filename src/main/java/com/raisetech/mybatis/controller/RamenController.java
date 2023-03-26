@@ -3,11 +3,13 @@ package com.raisetech.mybatis.controller;
 import com.raisetech.mybatis.entity.Ramen;
 import com.raisetech.mybatis.service.RamenService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
 
+@Validated
 @RestController
 public class RamenController {
 
@@ -23,7 +25,7 @@ public class RamenController {
   }
 
   @PatchMapping("/ramens/{id}")
-  public ResponseEntity<Map<String, String>> updateRamen(@PathVariable("id") int id, @RequestBody Ramen ramen) {
+  public ResponseEntity<Map<String, String>> updateRamen(@PathVariable("id") int id, @Validated @RequestBody Ramen ramen) {
     ramenService.update(id, ramen.getName(), ramen.getAddress(), ramen.getAvePrice(), ramen.getPoint());
     return ResponseEntity.ok(Map.of("message", "data successfully updated"));
   }

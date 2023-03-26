@@ -1,5 +1,8 @@
 package com.raisetech.mybatis.entity;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+
 public class Ramen {
 
   private int id;
@@ -10,6 +13,8 @@ public class Ramen {
 
   private Integer avePrice;
 
+  @Min(1)
+  @Max(10)
   private Integer point;
 
   public Ramen(int id, String name, String address, Integer avePrice, Integer point) {
