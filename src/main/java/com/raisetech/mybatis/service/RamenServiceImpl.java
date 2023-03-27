@@ -31,10 +31,10 @@ public class RamenServiceImpl implements RamenService {
     }
   }
 
-  public void create(int id, String name, String address, Integer avePrice, Integer point) {
-    ramenMapper.create(id, name, address, avePrice, point);
+  public void create(String name, String address, Integer avePrice, Integer point) {
+    ramenMapper.create(name, address, avePrice, point);
   }
-  
+
   public void update(int id, String name, String address, Integer avePrice, Integer point) {
     ramenMapper.update(id, name, address, avePrice, point);
   }

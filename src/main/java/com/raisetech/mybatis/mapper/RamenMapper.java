@@ -13,8 +13,8 @@ public interface RamenMapper {
   @Select("SELECT * FROM ramens WHERE point = #{point}")
   List<Ramen> getPoint(Integer point);
 
-  @Insert("INSERT INTO ramens (id, name, address, ave_price, point) VALUES (#{id}, #{name}, #{address}, #{avePrice}, #{point})")
-  void create(int id, String name, String address, Integer avePrice, Integer point);
+  @Insert("INSERT INTO ramens (name, address, ave_price, point) VALUES (#{name}, #{address}, #{avePrice}, #{point})")
+  void create(String name, String address, Integer avePrice, Integer point);
 
   @Update("UPDATE ramens SET name = #{name}, address = #{address}, ave_price = #{avePrice}, point = #{point} WHERE id = #{id}")
   void update(int id, String name, String address, Integer avePrice, Integer point);
