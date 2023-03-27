@@ -1,10 +1,7 @@
 package com.raisetech.mybatis.mapper;
 
 import com.raisetech.mybatis.entity.Ramen;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -15,6 +12,9 @@ public interface RamenMapper {
 
   @Select("SELECT * FROM ramens WHERE point = #{point}")
   List<Ramen> getPoint(Integer point);
+
+  @Insert("INSERT INTO ramens (id, name, address, ave_price, point) VALUES (#{id}, #{name}, #{address}, #{avePrice}, #{point})")
+  void create(int id, String name, String address, Integer avePrice, Integer point);
 
   @Update("UPDATE ramens SET name = #{name}, address = #{address}, ave_price = #{avePrice}, point = #{point} WHERE id = #{id}")
   void update(int id, String name, String address, Integer avePrice, Integer point);
