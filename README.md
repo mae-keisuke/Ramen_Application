@@ -31,10 +31,11 @@ SNS発展時代である現代では、InstagramやTwitterなどでラーメン�
 | 評価        |   point   |
 
 ***
-（2023.03.26現在）
+（2023.03.27現在）
 
 - DBには仮で10店舗のみ登録
 - `http://localhost:8080/ramens?point=10`で「評価が○点」の条件をレスポンスするよう実装
 - `id`でDeleteできるように実装
-- Patch実装（←今回のPR）
-- `point`の上下限を設定（←今回のPR）
+- Update機能実装
+- `point`の上下限を設定
+- Create機能実装（←今回のPR）
