@@ -31,15 +31,15 @@ public class RamenServiceImpl implements RamenService {
     }
   }
 
-  public void create(String name, String address, Integer avePrice, Integer point) {
-    ramenMapper.create(name, address, avePrice, point);
+  public void create(Ramen ramen) {
+    ramenMapper.create(Ramen.newInstance(ramen.getName(), ramen.getAddress(), ramen.getAvePrice(), ramen.getPoint()));
   }
 
-  public void update(int id, String name, String address, Integer avePrice, Integer point) {
+  public void update(Integer id, String name, String address, Integer avePrice, Integer point) {
     ramenMapper.update(id, name, address, avePrice, point);
   }
 
-  public void delete(int id) {
+  public void delete(Integer id) {
     ramenMapper.delete(id);
   }
 }

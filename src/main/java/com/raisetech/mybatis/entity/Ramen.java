@@ -5,7 +5,7 @@ import jakarta.validation.constraints.Min;
 
 public class Ramen {
 
-  private int id;
+  private Integer id;
 
   private String name;
 
@@ -17,7 +17,11 @@ public class Ramen {
   @Max(10)
   private Integer point;
 
-  public Ramen(int id, String name, String address, Integer avePrice, Integer point) {
+  public static Ramen newInstance(String name, String address, Integer avePrice, Integer point) {
+    return new Ramen(null, name, address, avePrice, point);
+  }
+
+  public Ramen(Integer id, String name, String address, Integer avePrice, Integer point) {
     this.id = id;
     this.name = name;
     this.address = address;
@@ -25,7 +29,7 @@ public class Ramen {
     this.point = point;
   }
 
-  public int getId() {
+  public Integer getId() {
     return id;
   }
 

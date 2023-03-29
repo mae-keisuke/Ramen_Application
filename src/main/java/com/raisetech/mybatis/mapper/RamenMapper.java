@@ -15,7 +15,7 @@ public interface RamenMapper {
 
   @Insert("INSERT INTO ramens (name, address, ave_price, point) VALUES (#{name}, #{address}, #{avePrice}, #{point})")
   @Options(useGeneratedKeys = true, keyProperty = "id")
-  void create(String name, String address, Integer avePrice, Integer point);
+  void create(Ramen ramen);
 
   @Update("UPDATE ramens SET name = #{name}, address = #{address}, ave_price = #{avePrice}, point = #{point} WHERE id = #{id}")
   void update(int id, String name, String address, Integer avePrice, Integer point);

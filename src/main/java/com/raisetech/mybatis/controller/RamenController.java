@@ -28,7 +28,7 @@ public class RamenController {
 
   @PostMapping("/ramens")
   public ResponseEntity<Map<String, String>> createRamen(@Validated @RequestBody Ramen ramen, UriComponentsBuilder uriBuilder) {
-    ramenService.create(ramen.getName(), ramen.getAddress(), ramen.getAvePrice(), ramen.getPoint());
+    ramenService.create(ramen);
     URI url = uriBuilder.path("/ramens/" + ramen.getId()).build().toUri();
     return ResponseEntity.created(url).body(Map.of("message", "data successfully created"));
   }

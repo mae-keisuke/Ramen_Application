@@ -13,9 +13,9 @@ public interface RamenService {
 
   List<Ramen> getRamenList(Integer point);
 
-  void create(String name, String address, Integer avePrice, Integer point);
+  void create(Ramen ramen);
 
-  void update(int id, String name, String address, Integer avePrice, Integer point);
+  void update(Integer id, String name, String address, Integer avePrice, Integer point);
 
-  void delete(int id);
+  void delete(Integer id);
 }
