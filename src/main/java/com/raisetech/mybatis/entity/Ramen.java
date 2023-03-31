@@ -48,4 +48,8 @@ public class Ramen {
   public Integer getPoint() {
     return point;
   }
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
 }

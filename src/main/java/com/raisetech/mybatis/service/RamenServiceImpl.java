@@ -32,7 +32,9 @@ public class RamenServiceImpl implements RamenService {
   }
 
   public void create(Ramen ramen) {
-    ramenMapper.create(Ramen.newInstance(ramen.getName(), ramen.getAddress(), ramen.getAvePrice(), ramen.getPoint()));
+    Ramen ramenEntity = Ramen.newInstance(ramen.getName(), ramen.getAddress(), ramen.getAvePrice(), ramen.getPoint());
+    ramenMapper.create(ramenEntity);
+    ramen.setId(ramenEntity.getId());
   }
 
   public void update(Integer id, String name, String address, Integer avePrice, Integer point) {
