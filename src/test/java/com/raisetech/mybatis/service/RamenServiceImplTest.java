@@ -9,6 +9,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -48,6 +49,13 @@ public class RamenServiceImplTest {
     when(ramenMapper.getPoint(9)).thenReturn(ramenList);
     List<Ramen> actual = ramenServiceImpl.findByPoint(9);
     assertThat(actual).isEqualTo(ramenList);
+  }
+
+  @Test
+  public void FindByPointで該当するデータがないときに空のリストが取得されること() {
+    when(ramenMapper.getPoint(11)).thenReturn(Collections.emptyList());
+    List<Ramen> actual = ramenServiceImpl.findByPoint(11);
+    assertThat(actual).isEmpty();
   }
 
   @Test
