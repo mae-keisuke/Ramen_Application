@@ -60,7 +60,7 @@ public class RamenServiceImplTest {
 
   @Test
   public void ラーメンデータが登録できること() {
-    Ramen ramenEntity = new Ramen(1, "カドヤ食堂", "大阪 西長堀", 980, 9);
+    Ramen ramenEntity = Ramen.newInstance("カドヤ食堂", "大阪 西長堀", 980, 9);
     doNothing().when(ramenMapper).create(ramenEntity);
     ramenServiceImpl.create(ramenEntity);
     verify(ramenMapper).create(ramenEntity);
