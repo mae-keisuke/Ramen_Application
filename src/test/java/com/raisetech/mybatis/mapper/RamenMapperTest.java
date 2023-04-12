@@ -65,9 +65,5 @@ public class RamenMapperTest {
     assertThat(ramenMapper.findAll()).hasSize(10);
     ramenMapper.delete(1);
     assertThat(ramenMapper.findAll()).hasSize(9);
-
   }
 }
-
-
-
