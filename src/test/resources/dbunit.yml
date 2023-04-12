@@ -1,0 +1,9 @@
+cacheConnection: false
+cacheTableNames: false
+properties:
+  schema: ramen_list
+caseInsensitiveStrategy: LOWERCASE
+connectionConfig:
+  url: "jdbc:mysql://localhost:3307/ramen_list"
+  user: "user"
+  password: "password"

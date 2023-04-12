@@ -1,0 +1,6 @@
+ramens:
+  - id: 1
+    name: "カドヤ食堂"
+    address: "大阪 西長堀"
+    ave_price: 980
+    point: 9
