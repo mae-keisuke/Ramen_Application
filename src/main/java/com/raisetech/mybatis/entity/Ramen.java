@@ -3,6 +3,8 @@ package com.raisetech.mybatis.entity;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 
+import java.util.Objects;
+
 public class Ramen {
 
   private Integer id;
@@ -49,6 +51,19 @@ public class Ramen {
     return point;
   }
 
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Ramen ramen = (Ramen) o;
+    return Objects.equals(id, ramen.id) && Objects.equals(name, ramen.name) && Objects.equals(address, ramen.address) && Objects.equals(avePrice, ramen.avePrice) && Objects.equals(point, ramen.point);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, name, address, avePrice, point);
+  }
+  
   public void setId(Integer id) {
     this.id = id;
   }
