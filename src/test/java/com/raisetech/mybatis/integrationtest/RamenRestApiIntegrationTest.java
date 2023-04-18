@@ -139,19 +139,26 @@ public class RamenRestApiIntegrationTest {
   @DataSet(value = "datasets/itRamen.yml")
   @Transactional
   void 指定したidのラーメンデータを更新できること() throws Exception {
-    mockMvc.perform(MockMvcRequestBuilders.patch("/ramens/{id}", 1)
-        .contentType(MediaType.APPLICATION_JSON)
-        .content("""
-            {
-            "id": 1,
-            "name": "kadoya食堂",
-            "address": "大阪 西長堀",
-            "avePrice": 980,
-            "point": 9
-            }
-            """)).andExpect(MockMvcResultMatchers.status().isOk());
+    String result = mockMvc.perform(MockMvcRequestBuilders.patch("/ramens/{id}", 1)
+            .contentType(MediaType.APPLICATION_JSON)
+            .content("""
+                {
+                "id": 1,
+                "name": "kadoya食堂",
+                "address": "大阪 西長堀",
+                "avePrice": 980,
+                "point": 9
+                }
+                """)).andExpect(MockMvcResultMatchers.status().isOk())
+        .andReturn().getResponse().getContentAsString(StandardCharsets.UTF_8);
+
+    JSONAssert.assertEquals("""
+        {
+            "message": "data successfully updated"
+        }
+        """, result, JSONCompareMode.STRICT);
   }
-  
+
   @Test
   @DataSet(value = "datasets/itRamen.yml")
   @Transactional
