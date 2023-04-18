@@ -118,7 +118,6 @@ public class RamenRestApiIntegrationTest {
             .contentType(MediaType.APPLICATION_JSON_VALUE)
             .content("""
                 {
-                    "id": 11,
                     "name": "天天有",
                     "address": "京都 一乗寺",
                     "avePrice": 600,
