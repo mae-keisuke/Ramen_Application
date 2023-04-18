@@ -1,6 +1,7 @@
 package com.raisetech.mybatis.integrationtest;
 
 import com.github.database.rider.core.api.dataset.DataSet;
+import com.github.database.rider.core.api.dataset.ExpectedDataSet;
 import com.github.database.rider.spring.api.DBRider;
 import org.junit.jupiter.api.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
@@ -114,6 +115,7 @@ public class RamenRestApiIntegrationTest {
 
   @Test
   @DataSet(value = "datasets/itRamen.yml")
+  @ExpectedDataSet(value = "datasets/itExpectedRamen.yml", ignoreCols = "id")
   @Transactional
   void it_ラーメンデータが登録できること() throws Exception {
     String result = mockMvc.perform(MockMvcRequestBuilders.post("/ramens")
@@ -127,7 +129,7 @@ public class RamenRestApiIntegrationTest {
                 }
                 """))
         .andExpect(MockMvcResultMatchers.status().isCreated())
-        .andExpect(header().string("Location", "http://localhost/ramens/23"))
+        .andExpect(header().string("Location", "http://localhost/ramens/25"))
         .andReturn().getResponse().getContentAsString(StandardCharsets.UTF_8);
 
     JSONAssert.assertEquals("""
@@ -139,6 +141,7 @@ public class RamenRestApiIntegrationTest {
 
   @Test
   @DataSet(value = "datasets/itRamen.yml")
+  @ExpectedDataSet(value = "datasets/itExpectedUpdateRamen.yml", ignoreCols = "id")
   @Transactional
   void 指定したidのラーメンデータを更新できること() throws Exception {
     String result = mockMvc.perform(MockMvcRequestBuilders.patch("/ramens/{id}", 1)
@@ -163,9 +166,10 @@ public class RamenRestApiIntegrationTest {
 
   @Test
   @DataSet(value = "datasets/itRamen.yml")
+  @ExpectedDataSet(value = "itExpectedDeleteRamens.yml", ignoreCols = "id")
   @Transactional
   void 指定したidのラーメンデータを削除できること() throws Exception {
-    mockMvc.perform(MockMvcRequestBuilders.delete("/ramens/{id}", 2))
+    mockMvc.perform(MockMvcRequestBuilders.delete("/ramens/{id}", 1))
         .andExpect(MockMvcResultMatchers.status().isOk());
   }
 }
