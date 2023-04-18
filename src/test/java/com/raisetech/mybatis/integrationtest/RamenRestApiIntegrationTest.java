@@ -17,6 +17,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.nio.charset.StandardCharsets;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
+
 @SpringBootTest
 @AutoConfigureMockMvc
 @DBRider
@@ -125,6 +127,7 @@ public class RamenRestApiIntegrationTest {
                 }
                 """))
         .andExpect(MockMvcResultMatchers.status().isCreated())
+        .andExpect(header().string("Location", "http://localhost/ramens/23"))
         .andReturn().getResponse().getContentAsString(StandardCharsets.UTF_8);
 
     JSONAssert.assertEquals("""
