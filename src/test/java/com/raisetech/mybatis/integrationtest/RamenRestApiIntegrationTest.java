@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -107,5 +108,55 @@ public class RamenRestApiIntegrationTest {
         ]
         """, response, JSONCompareMode.STRICT
     );
+  }
+
+  @Test
+  @DataSet(value = "datasets/itRamen.yml")
+  @Transactional
+  void it_ラーメンデータが登録できること() throws Exception {
+    String result = mockMvc.perform(MockMvcRequestBuilders.post("/ramens")
+            .contentType(MediaType.APPLICATION_JSON_VALUE)
+            .content("""
+                {
+                    "id": 11,
+                    "name": "天天有",
+                    "address": "京都 一乗寺",
+                    "avePrice": 600,
+                    "point": 7
+                }
+                """))
+        .andExpect(MockMvcResultMatchers.status().isCreated())
+        .andReturn().getResponse().getContentAsString(StandardCharsets.UTF_8);
+
+    JSONAssert.assertEquals("""
+        {
+            "message": "data successfully created"
+        }
+        """, result, JSONCompareMode.STRICT);
+  }
+
+  @Test
+  @DataSet(value = "datasets/itRamen.yml")
+  @Transactional
+  void 指定したidのラーメンデータを更新できること() throws Exception {
+    mockMvc.perform(MockMvcRequestBuilders.patch("/ramens/{id}", 1)
+        .contentType(MediaType.APPLICATION_JSON)
+        .content("""
+            {
+            "id": 1,
+            "name": "kadoya食堂",
+            "address": "大阪 西長堀",
+            "avePrice": 980,
+            "point": 9
+            }
+            """)).andExpect(MockMvcResultMatchers.status().isOk());
+  }
+  
+  @Test
+  @DataSet(value = "datasets/itRamen.yml")
+  @Transactional
+  void 指定したidのラーメンデータを削除できること() throws Exception {
+    mockMvc.perform(MockMvcRequestBuilders.delete("/ramens/{id}", 2))
+        .andExpect(MockMvcResultMatchers.status().isOk());
   }
 }
