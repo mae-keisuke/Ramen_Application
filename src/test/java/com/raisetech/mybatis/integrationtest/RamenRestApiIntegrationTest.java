@@ -169,7 +169,14 @@ public class RamenRestApiIntegrationTest {
   @ExpectedDataSet(value = "itExpectedDeleteRamens.yml", ignoreCols = "id")
   @Transactional
   void 指定したidのラーメンデータを削除できること() throws Exception {
-    mockMvc.perform(MockMvcRequestBuilders.delete("/ramens/{id}", 1))
-        .andExpect(MockMvcResultMatchers.status().isOk());
+    String result = mockMvc.perform(MockMvcRequestBuilders.delete("/ramens/{id}", 1))
+        .andExpect(MockMvcResultMatchers.status().isOk())
+        .andReturn().getResponse().getContentAsString(StandardCharsets.UTF_8);
+
+    JSONAssert.assertEquals("""
+        {
+            "message": "data successfully deleted"
+        }
+        """, result, JSONCompareMode.STRICT);
   }
 }
