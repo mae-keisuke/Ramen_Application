@@ -33,7 +33,7 @@ public class RamenController {
     return ResponseEntity.created(url).body(Map.of("message", "data successfully created"));
   }
 
-  @PatchMapping("/ramens/id")
+  @PatchMapping("/ramens/{id}")
   public ResponseEntity<Map<String, String>> updateRamen(@PathVariable("id") int id, @Validated @RequestBody Ramen ramen) {
     ramenService.update(id, ramen.getName(), ramen.getAddress(), ramen.getAvePrice(), ramen.getPoint());
     return ResponseEntity.ok(Map.of("message", "data successfully updated"));
