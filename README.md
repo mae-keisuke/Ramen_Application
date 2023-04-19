@@ -31,7 +31,6 @@ SNS発展時代である現代では、InstagramやTwitterなどでラーメン�
 | 評価        |   point   |
 
 ***
-（2023.04.13現在）
 
 - DBには仮で10店舗のみ登録
 - `http://localhost:8080/ramens?point=10`で「評価が○点」の条件をレスポンスするよう実装
@@ -39,3 +38,5 @@ SNS発展時代である現代では、InstagramやTwitterなどでラーメン�
 - Update機能実装
 - `point`の上下限を設定
 - 単体テスト実装
+- 結合テスト実装
+- CIで自動テスト機能追加

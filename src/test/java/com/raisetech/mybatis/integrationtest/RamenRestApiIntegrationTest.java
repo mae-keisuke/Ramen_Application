@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.nio.charset.StandardCharsets;
 
+import static org.hamcrest.text.MatchesPattern.matchesPattern;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 
 @SpringBootTest
@@ -129,7 +130,7 @@ public class RamenRestApiIntegrationTest {
                 }
                 """))
         .andExpect(MockMvcResultMatchers.status().isCreated())
-        .andExpect(header().string("Location", "http://localhost/ramens/25"))
+        .andExpect(header().string("Location", matchesPattern("http://localhost/ramens/\\d+")))
         .andReturn().getResponse().getContentAsString(StandardCharsets.UTF_8);
 
     JSONAssert.assertEquals("""
