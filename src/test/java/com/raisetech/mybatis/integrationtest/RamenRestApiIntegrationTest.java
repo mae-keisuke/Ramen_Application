@@ -129,7 +129,7 @@ public class RamenRestApiIntegrationTest {
                 }
                 """))
         .andExpect(MockMvcResultMatchers.status().isCreated())
-        .andExpect(header().string("Location", "http://localhost/ramens/25"))
+        .andExpect(header().string("Location", "http://localhost/ramens/27"))
         .andReturn().getResponse().getContentAsString(StandardCharsets.UTF_8);
 
     JSONAssert.assertEquals("""
